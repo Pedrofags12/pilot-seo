@@ -1,33 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR" style="scroll-behavior: smooth;">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foto Art - Transforme Seus Momentos</title>
-    <meta name="description" content="Serviços fotográficos profissionais, álbuns e impressões de alta qualidade. Solicite seu orçamento agora.">
+    <title>Foto Art - Estúdio Fotográfico Profissional</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'lato': ['Lato', 'sans-serif'],
-                        'roboto': ['Roboto', 'sans-serif'],
+                        lato: ['Lato', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
                     },
                     colors: {
                         brand: {
                             white: '#FFFFFF',
-                            bgsec: '#F9FAFB',
-                            body: '#626262',
-                            sub: '#a3a3a3',
-                            wpp: '#25D366',
+                            light: '#F9FAFB',
+                            text: '#626262',
+                            muted: '#a3a3a3',
+                            whatsapp: '#25D366',
                             cta: '#F59E0B'
                         }
                     }
@@ -35,31 +32,33 @@
             }
         }
     </script>
+    <style>
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
 </head>
-<body class="bg-brand-white text-brand-body font-roboto overflow-x-hidden antialiased">
+<body class="font-roboto text-brand-text bg-brand-white antialiased">
 
     <!-- 1. Header -->
     <header class="fixed top-0 w-full z-50 bg-brand-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-lato font-bold text-2xl md:text-3xl tracking-tighter text-brand-body">
+                    <a href="#" class="font-lato font-bold text-3xl tracking-tighter text-brand-text">
                         FOTO<span class="text-brand-cta">ART</span>
                     </a>
                 </div>
                 
-                <!-- Desktop Nav -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="font-lato font-bold text-brand-body hover:text-brand-cta transition-colors">HOME</a>
-                    <a href="#empresa" class="font-lato font-bold text-brand-body hover:text-brand-cta transition-colors">EMPRESA</a>
-                    <a href="#servicos" class="font-lato font-bold text-brand-body hover:text-brand-cta transition-colors">SERVIÇOS</a>
-                    <a href="#crm" class="font-lato font-bold text-brand-body hover:text-brand-cta transition-colors">CADASTRE-SE</a>
-                    <a href="#contato" class="font-lato font-bold text-brand-body hover:text-brand-cta transition-colors">CONTATO</a>
+                    <a href="#home" class="font-lato font-bold text-sm text-brand-text hover:text-brand-cta uppercase transition-colors">Home</a>
+                    <a href="#servicos" class="font-lato font-bold text-sm text-brand-text hover:text-brand-cta uppercase transition-colors">Serviços</a>
+                    <a href="#crm" class="font-lato font-bold text-sm text-brand-text hover:text-brand-cta uppercase transition-colors">Cadastre-se</a>
+                    <a href="#faq" class="font-lato font-bold text-sm text-brand-text hover:text-brand-cta uppercase transition-colors">FAQ</a>
+                    <a href="#contato" class="font-lato font-bold text-sm text-brand-text hover:text-brand-cta uppercase transition-colors">Contato</a>
                 </nav>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-brand-body hover:text-brand-cta focus:outline-none p-2" aria-label="Abrir menu">
+                    <button id="mobile-menu-btn" class="text-brand-text hover:text-brand-cta focus:outline-none">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -68,43 +67,35 @@
             </div>
         </div>
 
-        <!-- Mobile Sidebar -->
-        <div id="mobile-sidebar" class="fixed inset-y-0 right-0 z-50 w-64 bg-brand-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col">
-            <div class="p-4 flex justify-end">
-                <button id="close-menu-btn" class="text-brand-body hover:text-brand-cta p-2" aria-label="Fechar menu">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 font-lato font-bold text-base text-brand-text hover:bg-brand-light uppercase">Home</a>
+                <a href="#servicos" class="block px-3 py-2 font-lato font-bold text-base text-brand-text hover:bg-brand-light uppercase">Serviços</a>
+                <a href="#crm" class="block px-3 py-2 font-lato font-bold text-base text-brand-text hover:bg-brand-light uppercase">Cadastre-se</a>
+                <a href="#faq" class="block px-3 py-2 font-lato font-bold text-base text-brand-text hover:bg-brand-light uppercase">FAQ</a>
+                <a href="#contato" class="block px-3 py-2 font-lato font-bold text-base text-brand-text hover:bg-brand-light uppercase">Contato</a>
             </div>
-            <nav class="flex flex-col space-y-6 px-6 pb-6">
-                <a href="#home" class="mobile-link font-lato font-bold text-lg text-brand-body">HOME</a>
-                <a href="#empresa" class="mobile-link font-lato font-bold text-lg text-brand-body">EMPRESA</a>
-                <a href="#servicos" class="mobile-link font-lato font-bold text-lg text-brand-body">SERVIÇOS</a>
-                <a href="#crm" class="mobile-link font-lato font-bold text-lg text-brand-body">CADASTRE-SE</a>
-                <a href="#contato" class="mobile-link font-lato font-bold text-lg text-brand-body">CONTATO</a>
-            </nav>
         </div>
-        <!-- Sidebar Overlay -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
     </header>
 
-    <main class="pt-20" id="home">
+    <main id="home" class="pt-20">
         <!-- 2. Barra de Ações Rápidas (Hero Top) -->
-        <section class="bg-brand-bgsec py-8 md:py-12 border-b border-gray-200">
+        <section class="bg-brand-light py-10 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                    <a href="https://wa.me/5511999999999" target="_blank" class="flex flex-col items-center justify-center p-6 bg-brand-wpp text-brand-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
-                        <svg class="w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                        <span class="font-lato font-bold uppercase tracking-wide text-center">Televendas / WhatsApp</span>
+                <div class="text-center mb-8">
+                    <h1 class="font-lato font-bold text-3xl md:text-5xl text-brand-text mb-4">Transforme Seus Momentos em Obras de Arte</h1>
+                    <p class="text-brand-muted text-lg md:text-xl">Estúdio fotográfico completo para empresas e pessoas físicas. Agende sua sessão hoje.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20um%20orçamento!" target="_blank" class="flex items-center justify-center w-full py-4 px-6 bg-brand-whatsapp text-brand-white font-lato font-bold uppercase tracking-wide rounded shadow hover:bg-green-600 transition-colors">
+                        <svg class="w-6 h-6 mr-2 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        TELEVENDAS / WHATSAPP
                     </a>
-                    <a href="#contato" class="flex flex-col items-center justify-center p-6 bg-[#626262] text-brand-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
-                        <svg class="w-10 h-10 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        <span class="font-lato font-bold uppercase tracking-wide text-center">Solicitar Orçamento</span>
+                    <a href="#contato" class="flex items-center justify-center w-full py-4 px-6 bg-gray-500 text-brand-white font-lato font-bold uppercase tracking-wide rounded shadow hover:bg-gray-600 transition-colors">
+                        SOLICITAR ORÇAMENTO
                     </a>
-                    <a href="#crm" class="flex flex-col items-center justify-center p-6 bg-brand-cta text-brand-white rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
-                        <svg class="w-10 h-10 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <span class="font-lato font-bold uppercase tracking-wide text-center">Cadastre-se no CRM</span>
+                    <a href="#crm" class="flex items-center justify-center w-full py-4 px-6 bg-brand-cta text-brand-white font-lato font-bold uppercase tracking-wide rounded shadow hover:bg-orange-600 transition-colors">
+                        CADASTRE-SE NO NOSSO CRM
                     </a>
                 </div>
             </div>
@@ -114,96 +105,118 @@
         <section id="servicos" class="py-16 md:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="font-lato font-bold text-3xl md:text-4xl text-brand-body uppercase">Nossos Serviços</h2>
-                    <p class="mt-4 text-brand-sub text-lg font-roboto">Soluções completas para eternizar seus melhores momentos.</p>
+                    <h2 class="font-lato font-bold text-3xl md:text-4xl text-brand-text mb-2">Nossos Serviços Fotográficos</h2>
+                    <p class="text-brand-muted text-lg">Especialistas em capturar a essência de cada momento.</p>
                 </div>
                 
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                    <!-- Card 1 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=80" alt="Sessão Fotográfica" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Sessão Fotográfica</h3>
-                        </div>
-                    </a>
-                    <!-- Card 2 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1520390138845-fd2d229dd553?auto=format&fit=crop&w=400&q=80" alt="Casamentos" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Casamentos</h3>
-                        </div>
-                    </a>
-                    <!-- Card 3 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=400&q=80" alt="Fotografia Corporativa" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Corporativo</h3>
-                        </div>
-                    </a>
-                    <!-- Card 4 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=400&q=80" alt="Impressão Fine Art" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Impressão Fine Art</h3>
-                        </div>
-                    </a>
-                    <!-- Card 5 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?auto=format&fit=crop&w=400&q=80" alt="Álbuns Personalizados" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Álbuns Premium</h3>
-                        </div>
-                    </a>
-                    <!-- Card 6 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?auto=format&fit=crop&w=400&q=80" alt="Ensaios Gestante" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Ensaios Gestante</h3>
-                        </div>
-                    </a>
-                    <!-- Card 7 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1516961642265-531546e84af2?auto=format&fit=crop&w=400&q=80" alt="Fotografia de Produtos" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Fotografia de Produtos</h3>
-                        </div>
-                    </a>
-                    <!-- Card 8 -->
-                    <a href="#contato" class="group block overflow-hidden rounded-xl bg-brand-bgsec shadow-sm hover:shadow-xl transition-all">
-                        <img src="https://images.unsplash.com/photo-1554048612-b6a381418ef0?auto=format&fit=crop&w=400&q=80" alt="Restauração de Fotos" loading="lazy" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="p-4 text-center">
-                            <h3 class="font-lato font-bold text-brand-body text-sm md:text-base uppercase">Restauração</h3>
-                        </div>
-                    </a>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Serviço 1 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casamentos" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Casamentos</h3>
+                            </div>
+                        </a>
+                    </article>
+                    <!-- Serviço 2 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Retratos" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Retratos Corporativos</h3>
+                            </div>
+                        </a>
+                    </article>
+                    <!-- Serviço 3 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Produtos" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Fotografia de Produtos</h3>
+                            </div>
+                        </a>
+                    </article>
+                    <!-- Serviço 4 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Eventos" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Eventos Corporativos</h3>
+                            </div>
+                        </a>
+                    </article>
+                    <!-- Serviço 5 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Shows" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Shows e Festivais</h3>
+                            </div>
+                        </a>
+                    </article>
+                    <!-- Serviço 6 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Moda e E-commerce</h3>
+                            </div>
+                        </a>
+                    </article>
+                    <!-- Serviço 7 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1473186505569-9c61870c11f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Arquitetura" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Arquitetura e Imóveis</h3>
+                            </div>
+                        </a>
+                    </article>
+                    <!-- Serviço 8 -->
+                    <article class="relative group overflow-hidden rounded-lg shadow-md aspect-square">
+                        <a href="#contato" class="block w-full h-full">
+                            <img src="https://images.unsplash.com/photo-1537637841551-4091ab779c16?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Estúdio" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                            <div class="absolute bottom-0 left-0 w-full p-4 text-center">
+                                <h3 class="font-lato font-bold text-brand-white text-lg md:text-xl uppercase tracking-wider">Locação de Estúdio</h3>
+                            </div>
+                        </a>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- 4. Captura CRM -->
-        <section id="crm" class="bg-brand-bgsec py-16 md:py-20">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-brand-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
+        <section id="crm" class="bg-brand-light py-16 md:py-24">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-brand-white rounded-xl shadow-xl p-8 border border-gray-100">
                     <div class="text-center mb-8">
-                        <h2 class="font-lato font-bold text-2xl md:text-3xl text-brand-body uppercase">Cadastre-se e Garanta 15% OFF</h2>
-                        <p class="mt-2 text-brand-sub font-roboto">Entre para nossa lista VIP e receba ofertas exclusivas em primeira mão.</p>
+                        <h2 class="font-lato font-bold text-2xl md:text-3xl text-brand-text mb-2">Garanta 20% OFF na Primeira Sessão</h2>
+                        <p class="text-brand-muted">Cadastre-se no nosso Clube de Benefícios e receba ofertas exclusivas diretamente no seu e-mail.</p>
                     </div>
-                    <form action="#" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="nome" class="sr-only">Nome Completo</label>
-                                <input type="text" id="nome" name="nome" placeholder="Seu Nome Completo" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none bg-brand-bgsec font-roboto text-brand-body">
-                            </div>
-                            <div>
-                                <label for="email" class="sr-only">E-mail</label>
-                                <input type="email" id="email" name="email" placeholder="Seu Melhor E-mail" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none bg-brand-bgsec font-roboto text-brand-body">
-                            </div>
+                    <form onsubmit="event.preventDefault(); alert('Cadastro realizado com sucesso!');" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-brand-text mb-1">Nome Completo</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none transition-all placeholder-gray-400" placeholder="Digite seu nome">
                         </div>
                         <div>
-                            <label for="mensagem" class="sr-only">Como podemos ajudar?</label>
-                            <textarea id="mensagem" name="mensagem" rows="3" placeholder="Qual o seu projeto fotográfico? (Opcional)" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none bg-brand-bgsec font-roboto text-brand-body resize-none"></textarea>
+                            <label for="email" class="block text-sm font-medium text-brand-text mb-1">Melhor E-mail</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none transition-all placeholder-gray-400" placeholder="seu@email.com">
                         </div>
-                        <button type="submit" class="w-full bg-brand-cta hover:bg-orange-600 text-brand-white font-lato font-bold uppercase tracking-wide py-4 rounded-md transition-colors shadow-md text-lg">
-                            Quero Meu Desconto Agora
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-brand-text mb-1">Qual serviço você procura?</label>
+                            <textarea id="message" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none transition-all placeholder-gray-400" placeholder="Descreva brevemente..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-brand-cta text-brand-white font-lato font-bold uppercase tracking-widest rounded shadow-lg hover:bg-orange-600 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                            QUERO MEU DESCONTO AGORA
                         </button>
                     </form>
                 </div>
@@ -213,16 +226,15 @@
         <!-- 5. Engajamento YouTube -->
         <section class="py-16 md:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center bg-red-50 rounded-2xl overflow-hidden shadow-lg border border-red-100">
-                    <div class="w-full md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80" alt="YouTube Channel" loading="lazy" class="w-full h-64 md:h-full object-cover">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-brand-text text-brand-white rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="h-64 lg:h-full">
+                        <img src="https://images.unsplash.com/photo-1527011045974-436f32dba5c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bastidores Estúdio" loading="lazy" class="w-full h-full object-cover">
                     </div>
-                    <div class="w-full md:w-1/2 p-8 md:p-12 text-center md:text-left">
-                        <h2 class="font-lato font-bold text-3xl text-brand-body uppercase mb-4">Aprenda com Especialistas</h2>
-                        <p class="text-brand-body font-roboto mb-8 text-lg">Receba dicas exclusivas de fotografia, tutoriais de edição e bastidores de ensaios incríveis. Transforme sua forma de ver o mundo.</p>
-                        <a href="#" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-brand-white font-lato font-bold uppercase tracking-wide py-3 px-8 rounded-md transition-colors shadow-md">
-                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                            Inscreva-se no Canal
+                    <div class="p-8 md:p-12 text-center lg:text-left">
+                        <h2 class="font-lato font-bold text-3xl md:text-4xl mb-4 text-brand-white">Aprenda com os Mestres da Fotografia</h2>
+                        <p class="text-gray-300 text-lg mb-8">Receba dicas exclusivas de iluminação, direção de modelos e edição profissional. Assine nosso canal e transforme seus cliques.</p>
+                        <a href="#" class="inline-block py-4 px-8 bg-red-600 text-brand-white font-lato font-bold uppercase tracking-wide rounded hover:bg-red-700 transition-colors shadow-lg">
+                            INSCREVA-SE NO YOUTUBE
                         </a>
                     </div>
                 </div>
@@ -230,76 +242,95 @@
         </section>
 
         <!-- 6. Vídeo Institucional -->
-        <section id="empresa" class="bg-brand-bgsec py-16 md:py-24">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-lato font-bold text-3xl md:text-4xl text-brand-body uppercase mb-4">Por Que Escolher a Foto Art?</h2>
-                <p class="text-brand-sub font-roboto mb-10">Assista ao vídeo e conheça nossa estrutura e paixão pela fotografia.</p>
-                <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl border-4 border-white">
-                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0" title="Vídeo Institucional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <section class="bg-brand-light py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-lato font-bold text-3xl md:text-4xl text-brand-text mb-4">Conheça a Estrutura Foto Art</h2>
+                <p class="text-brand-muted mb-8">Mais de 500m² de estúdios climatizados, camarins e equipamentos de última geração.</p>
+                <div class="aspect-video w-full rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
         <!-- 7. Redes Sociais -->
-        <section class="py-16 border-b border-gray-100">
+        <section class="py-16 md:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-lato font-bold text-2xl md:text-3xl text-brand-body uppercase mb-8">Siga-nos e Inspire-se</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <a href="#" class="flex flex-col items-center p-6 bg-brand-bgsec rounded-xl hover:bg-gray-100 transition-colors group">
-                        <svg class="w-12 h-12 text-[#E1306C] mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                        <span class="font-lato font-bold text-brand-body">Instagram</span>
+                <h2 class="font-lato font-bold text-3xl md:text-4xl text-brand-text mb-12">Siga-nos nas Redes</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Instagram -->
+                    <a href="#" class="group flex flex-col items-center p-6 rounded-xl hover:bg-brand-light transition-colors">
+                        <div class="w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </div>
+                        <span class="font-lato font-bold text-brand-text">Instagram</span>
                     </a>
-                    <a href="#" class="flex flex-col items-center p-6 bg-brand-bgsec rounded-xl hover:bg-gray-100 transition-colors group">
-                        <svg class="w-12 h-12 text-[#1877F2] mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        <span class="font-lato font-bold text-brand-body">Facebook</span>
+                    <!-- Facebook -->
+                    <a href="#" class="group flex flex-col items-center p-6 rounded-xl hover:bg-brand-light transition-colors">
+                        <div class="w-20 h-20 flex items-center justify-center rounded-full bg-blue-600 text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                        </div>
+                        <span class="font-lato font-bold text-brand-text">Facebook</span>
                     </a>
-                    <a href="#" class="flex flex-col items-center p-6 bg-brand-bgsec rounded-xl hover:bg-gray-100 transition-colors group">
-                        <svg class="w-12 h-12 text-[#4285F4] mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-                        <span class="font-lato font-bold text-brand-body">Google Reviews</span>
+                    <!-- Google -->
+                    <a href="#" class="group flex flex-col items-center p-6 rounded-xl hover:bg-brand-light transition-colors">
+                        <div class="w-20 h-20 flex items-center justify-center rounded-full bg-white border border-gray-200 mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                        </div>
+                        <span class="font-lato font-bold text-brand-text">Avaliações</span>
                     </a>
-                    <a href="#" class="flex flex-col items-center p-6 bg-brand-bgsec rounded-xl hover:bg-gray-100 transition-colors group">
-                        <svg class="w-12 h-12 text-brand-body mb-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        <span class="font-lato font-bold text-brand-body">Parceiros</span>
+                    <!-- Parceiros -->
+                    <a href="#" class="group flex flex-col items-center p-6 rounded-xl hover:bg-brand-light transition-colors">
+                        <div class="w-20 h-20 flex items-center justify-center rounded-full bg-brand-text text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <span class="font-lato font-bold text-brand-text">Parceiros</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- 8. FAQ (Dúvidas Frequentes) -->
-        <section class="bg-brand-bgsec py-16 md:py-24">
+        <!-- 8. FAQ -->
+        <section id="faq" class="bg-brand-light py-16 md:py-24">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <h2 class="font-lato font-bold text-3xl text-brand-body uppercase">Dúvidas Frequentes</h2>
+                <div class="text-center mb-12">
+                    <h2 class="font-lato font-bold text-3xl md:text-4xl text-brand-text mb-4">Dúvidas Frequentes</h2>
+                    <p class="text-brand-muted">Respostas diretas para você agendar sem medo.</p>
                 </div>
+                
                 <div class="space-y-4">
-                    <!-- Item 1 -->
-                    <details class="group bg-brand-white rounded-lg shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-5 text-brand-body font-lato font-bold">
-                            Qual o prazo de entrega das fotos editadas?
-                            <svg class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180 text-brand-cta" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <details class="group bg-brand-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer shadow-sm">
+                        <summary class="flex justify-between items-center p-6 font-lato font-bold text-brand-text">
+                            <span>Qual o prazo de entrega das fotos?</span>
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
                         </summary>
-                        <div class="px-5 pb-5 font-roboto text-brand-body leading-relaxed border-t border-gray-50 pt-4">
-                            Garantimos a entrega de ensaios em até 7 dias úteis e coberturas de eventos (como casamentos) em até 30 dias úteis. Tudo tratado com a máxima qualidade e cuidado.
+                        <div class="px-6 pb-6 text-brand-muted border-t border-gray-100 pt-4">
+                            Entregamos uma prévia em até 48 horas. O material completo com tratamento profissional é enviado via link seguro em até 7 dias úteis após a seleção.
                         </div>
                     </details>
-                    <!-- Item 2 -->
-                    <details class="group bg-brand-white rounded-lg shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-5 text-brand-body font-lato font-bold">
-                            As sessões podem ser feitas em estúdio e externas?
-                            <svg class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180 text-brand-cta" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
+                    <details class="group bg-brand-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer shadow-sm">
+                        <summary class="flex justify-between items-center p-6 font-lato font-bold text-brand-text">
+                            <span>Vocês atendem fora do estúdio (externas)?</span>
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
                         </summary>
-                        <div class="px-5 pb-5 font-roboto text-brand-body leading-relaxed border-t border-gray-50 pt-4">
-                            Sim! Possuímos estúdio climatizado próprio e também realizamos ensaios em locações externas à sua escolha, adaptando o estilo à sua necessidade.
+                        <div class="px-6 pb-6 text-brand-muted border-t border-gray-100 pt-4">
+                            Sim! Atendemos em todo o estado de São Paulo. Para outras localidades, consulte disponibilidade e taxas de deslocamento com nossa equipe de atendimento.
                         </div>
                     </details>
-                    <!-- Item 3 -->
-                    <details class="group bg-brand-white rounded-lg shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-5 text-brand-body font-lato font-bold">
-                            Como funciona a reserva da data?
-                            <svg class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180 text-brand-cta" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
+                    <details class="group bg-brand-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer shadow-sm">
+                        <summary class="flex justify-between items-center p-6 font-lato font-bold text-brand-text">
+                            <span>Como funciona o pagamento? É seguro?</span>
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
                         </summary>
-                        <div class="px-5 pb-5 font-roboto text-brand-body leading-relaxed border-t border-gray-50 pt-4">
-                            A data é garantida mediante assinatura do contrato digital e pagamento de um sinal de 30%. O restante pode ser parcelado até a data do evento ou ensaio.
+                        <div class="px-6 pb-6 text-brand-muted border-t border-gray-100 pt-4">
+                            Totalmente seguro. Aceitamos cartões de crédito em até 12x, PIX e boleto bancário. Trabalhamos com contrato garantindo a entrega e satisfação do seu material.
                         </div>
                     </details>
                 </div>
@@ -307,62 +338,67 @@
         </section>
 
         <!-- 9. Endereço e Mapa -->
-        <section id="contato" class="py-16 border-b border-gray-100">
+        <section id="contato" class="py-16 md:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="font-lato font-bold text-3xl text-brand-body uppercase mb-6">Onde Estamos</h2>
-                        <div class="space-y-4 font-roboto text-brand-body text-lg">
-                            <p class="flex items-start">
-                                <svg class="w-6 h-6 text-brand-cta mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <span>Av. Paulista, 1000 - Bela Vista<br>São Paulo - SP, 01310-100<br>Edifício Art Prime, Conjunto 402</span>
-                            </p>
-                            <p class="flex items-center">
-                                <svg class="w-6 h-6 text-brand-cta mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                <span>(11) 99999-9999</span>
-                            </p>
-                            <p class="flex items-center">
-                                <svg class="w-6 h-6 text-brand-cta mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                <span>contato@fotoart.com.br</span>
-                            </p>
+                        <h2 class="font-lato font-bold text-3xl md:text-4xl text-brand-text mb-6">Venha Tomar um Café Conosco</h2>
+                        <p class="text-brand-muted text-lg mb-8">Nossa equipe está pronta para receber você e entender exatamente o que seu projeto precisa.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-cta mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                <div>
+                                    <h4 class="font-lato font-bold text-brand-text text-lg">Endereço Principal</h4>
+                                    <p class="text-brand-muted">Av. Paulista, 1000 - Conjunto 150<br>Bela Vista, São Paulo - SP, 01310-100</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-brand-cta mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                <div>
+                                    <h4 class="font-lato font-bold text-brand-text text-lg">Central de Atendimento</h4>
+                                    <p class="text-brand-muted">(11) 3000-0000 / (11) 99999-9999</p>
+                                </div>
+                            </div>
                         </div>
-                        <a href="https://wa.me/5511999999999" target="_blank" class="mt-8 inline-block bg-brand-body text-brand-white font-lato font-bold uppercase py-3 px-6 rounded-md hover:bg-black transition-colors">Agendar Visita</a>
                     </div>
-                    <div class="h-80 md:h-[400px] w-full bg-gray-200 rounded-xl overflow-hidden shadow-inner">
-                        <!-- Google Maps Placeholder (Using an iframe to a generic maps view) -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975765586687!2d-46.65451638502213!3d-23.561337484682496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                    <div class="h-96 w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197365610813!2d-46.65487738440625!3d-23.561337467475143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1680000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 10. Delivery (Entrega de Álbuns) -->
-        <section class="relative py-20 bg-gray-900 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1589311281867-02422ebc2b0c?auto=format&fit=crop&w=1920&q=80" alt="Delivery" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-20">
+        <!-- 10. Delivery de Álbuns / Produtos -->
+        <section class="relative py-20 bg-brand-text overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1586810724476-c294fb7ac01b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Delivery de Álbuns" class="w-full h-full object-cover opacity-20">
+            </div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-lato font-bold text-3xl md:text-5xl text-brand-white uppercase mb-4">Seu Álbum Entregue em Casa</h2>
-                <p class="text-gray-300 font-roboto text-lg md:text-xl mb-8 max-w-2xl mx-auto">Oferecemos serviço de curadoria, impressão Fine Art e entrega segura para que você receba suas memórias sem sair do conforto do lar.</p>
-                <a href="#crm" class="inline-block bg-brand-cta hover:bg-orange-600 text-brand-white font-lato font-bold uppercase tracking-wide py-4 px-10 rounded-md transition-colors shadow-lg text-lg">
-                    Solicitar Entrega
+                <h2 class="font-lato font-bold text-3xl md:text-5xl text-brand-white mb-6">Seus Álbuns Entregues na Porta da Sua Casa</h2>
+                <p class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10">Oferecemos serviço de diagramação, impressão Fine Art e entrega expressa para todo o Brasil. Receba suas memórias com total segurança e embalagem premium.</p>
+                <a href="#contato" class="inline-block py-4 px-10 bg-brand-cta text-brand-white font-lato font-bold uppercase tracking-widest rounded shadow-xl hover:bg-orange-600 transition-transform transform hover:-translate-y-1">
+                    SOLICITAR IMPRESSÃO E ENTREGA
                 </a>
             </div>
         </section>
 
         <!-- 11. Selos de Confiança -->
-        <section class="py-12 bg-brand-white border-b border-gray-200">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div class="flex flex-col items-center justify-center">
-                        <svg class="w-16 h-16 text-brand-cta mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        <span class="font-lato font-bold text-brand-body uppercase text-sm">Garantia de Satisfação</span>
+        <section class="py-12 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center opacity-70">
+                    <div class="flex flex-col items-center">
+                        <svg class="w-12 h-12 mb-3 text-brand-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span class="font-lato font-bold text-sm uppercase">Garantia de Satisfação</span>
                     </div>
-                    <div class="flex flex-col items-center justify-center">
-                        <svg class="w-16 h-16 text-brand-body mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        <span class="font-lato font-bold text-brand-body uppercase text-sm">Site 100% Seguro SSL</span>
+                    <div class="flex flex-col items-center">
+                        <svg class="w-12 h-12 mb-3 text-brand-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        <span class="font-lato font-bold text-sm uppercase">Site 100% Seguro (SSL)</span>
                     </div>
-                    <div class="flex flex-col items-center justify-center">
-                        <svg class="w-16 h-16 text-brand-body mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-                        <span class="font-lato font-bold text-brand-body uppercase text-sm">Aceitamos Todos os Cartões</span>
+                    <div class="flex flex-col items-center">
+                        <svg class="w-12 h-12 mb-3 text-brand-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        <span class="font-lato font-bold text-sm uppercase">Pagamento Facilitado</span>
                     </div>
                 </div>
             </div>
@@ -370,140 +406,127 @@
     </main>
 
     <!-- 12. Footer -->
-    <footer class="bg-gray-50 pt-12 pb-6 border-t border-gray-200">
+    <footer class="bg-brand-light border-t border-gray-200 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
                 <div>
-                    <span class="font-lato font-bold text-2xl tracking-tighter text-brand-body block mb-4">
-                        FOTO<span class="text-brand-cta">ART</span>
-                    </span>
-                    <p class="text-brand-body font-roboto text-sm">Capturando a essência dos seus melhores momentos com qualidade e profissionalismo excepcionais.</p>
+                    <h3 class="font-lato font-bold text-2xl text-brand-text mb-4 tracking-tighter">FOTO<span class="text-brand-cta">ART</span></h3>
+                    <p class="text-brand-muted text-sm">Capturando a essência e eternizando momentos. Seu estúdio de fotografia completo em São Paulo.</p>
                 </div>
                 <div>
-                    <h4 class="font-lato font-bold text-brand-body uppercase mb-4">Horário de Atendimento</h4>
-                    <ul class="text-brand-body font-roboto text-sm space-y-2">
-                        <li>Segunda a Sexta: 09h às 18h</li>
-                        <li>Sábados: 09h às 14h</li>
-                        <li>Domingos: Fechado (exceto eventos)</li>
-                    </ul>
+                    <h4 class="font-lato font-bold text-brand-text mb-4 uppercase text-sm tracking-wider">Horário de Funcionamento</h4>
+                    <p class="text-brand-muted text-sm leading-relaxed">
+                        Segunda a Sexta: 08:00 às 20:00<br>
+                        Sábado: 09:00 às 15:00<br>
+                        Domingos e Feriados: Somente eventos agendados
+                    </p>
                 </div>
                 <div>
-                    <h4 class="font-lato font-bold text-brand-body uppercase mb-4">Links Rápidos</h4>
-                    <ul class="text-brand-body font-roboto text-sm space-y-2">
-                        <li><a href="#home" class="hover:text-brand-cta">Home</a></li>
-                        <li><a href="#servicos" class="hover:text-brand-cta">Nossos Serviços</a></li>
-                        <li><a href="#crm" class="hover:text-brand-cta">Cadastre-se (Desconto)</a></li>
-                        <li><a href="https://wa.me/5511999999999" target="_blank" class="hover:text-brand-cta">Falar com Atendente</a></li>
-                    </ul>
+                    <h4 class="font-lato font-bold text-brand-text mb-4 uppercase text-sm tracking-wider">Atendimento Rápido</h4>
+                    <p class="text-brand-muted text-sm leading-relaxed">
+                        contato@fotoart.com.br<br>
+                        (11) 3000-0000<br>
+                        WhatsApp: (11) 99999-9999
+                    </p>
                 </div>
             </div>
-            <div class="text-center pt-6 border-t border-gray-200">
-                <p class="text-brand-sub font-roboto text-xs">&copy; 2023 Foto Art. Todos os direitos reservados. CNPJ: 00.000.000/0001-00</p>
+            <div class="border-t border-gray-200 pt-8 text-center">
+                <p class="text-sm text-brand-muted">&copy; <span id="year"></span> Foto Art Estúdio. Todos os direitos reservados. Design para Alta Conversão.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20um%20orçamento!" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-brand-wpp text-white p-4 rounded-full shadow-2xl animate-pulse hover:scale-110 transition-transform" aria-label="Falar no WhatsApp">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20um%20orçamento!" target="_blank" class="fixed bottom-6 right-6 z-50 bg-brand-whatsapp text-white p-4 rounded-full shadow-2xl animate-pulse hover:bg-green-600 hover:scale-110 transition-transform">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- Modal Exit-Intent -->
-    <div id="exitModal" class="fixed inset-0 z-[60] bg-black/70 hidden items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-brand-white w-full max-w-lg rounded-xl shadow-2xl relative overflow-hidden animate-[pulse_0.5s_ease-out_1]">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-brand-body transition-colors" aria-label="Fechar">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <!-- Exit Intent Modal -->
+    <div id="exit-modal" class="fixed inset-0 z-[100] bg-black/60 hidden items-center justify-center backdrop-blur-sm px-4">
+        <div class="bg-brand-white rounded-xl shadow-2xl max-w-lg w-full relative overflow-hidden">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors z-10 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
             <div class="bg-brand-cta p-6 text-center">
-                <h3 class="font-lato font-bold text-2xl text-brand-white uppercase">Não vá embora sem seu desconto!</h3>
+                <h2 class="font-lato font-bold text-2xl text-white uppercase tracking-wide">Não vá embora sem seu desconto!</h2>
             </div>
-            <div class="p-8">
-                <p class="font-roboto text-brand-body text-center mb-6">Garanta agora <strong>20% DE DESCONTO</strong> no seu primeiro ensaio fotográfico ou cobertura de evento. Válido apenas hoje!</p>
-                <form action="#" method="POST" class="space-y-4">
+            <div class="p-8 text-center">
+                <p class="text-brand-text mb-6">Receba agora mesmo um voucher de <span class="font-bold text-brand-cta">20% OFF</span> para usar em qualquer ensaio ou serviço do estúdio.</p>
+                <form onsubmit="event.preventDefault(); document.getElementById('exit-modal').classList.add('hidden'); alert('Voucher enviado para seu WhatsApp/E-mail!');" class="space-y-4 text-left">
                     <div>
-                        <input type="text" placeholder="Seu Nome" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-cta outline-none font-roboto">
+                        <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none transition-all placeholder-gray-400" placeholder="Seu Nome">
                     </div>
                     <div>
-                        <input type="email" placeholder="Seu E-mail" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-cta outline-none font-roboto">
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none transition-all placeholder-gray-400" placeholder="Seu E-mail">
                     </div>
                     <div>
-                        <input type="tel" placeholder="Seu WhatsApp" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-cta outline-none font-roboto">
+                        <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-cta focus:border-transparent outline-none transition-all placeholder-gray-400" placeholder="Seu WhatsApp">
                     </div>
-                    <button type="submit" class="w-full bg-brand-cta hover:bg-orange-600 text-brand-white font-lato font-bold uppercase py-4 rounded-md transition-colors text-lg">
-                        Garantir Meu Desconto
+                    <button type="submit" class="w-full py-4 bg-brand-whatsapp text-brand-white font-lato font-bold uppercase tracking-widest rounded shadow-lg hover:bg-green-600 transition-colors mt-2">
+                        GARANTIR MEU DESCONTO AGORA
                     </button>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Scripts (Vanilla JS) -->
+    <!-- Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Logic
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const closeMenuBtn = document.getElementById('close-menu-btn');
-            const mobileSidebar = document.getElementById('mobile-sidebar');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-            const toggleMenu = () => {
-                const isOpen = !mobileSidebar.classList.contains('translate-x-full');
-                if (isOpen) {
-                    mobileSidebar.classList.add('translate-x-full');
-                    sidebarOverlay.classList.add('hidden');
-                } else {
-                    mobileSidebar.classList.remove('translate-x-full');
-                    sidebarOverlay.classList.remove('hidden');
-                }
-            };
+        // Menu Mobile Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const menuLinks = menu.querySelectorAll('a');
 
-            mobileMenuBtn.addEventListener('click', toggleMenu);
-            closeMenuBtn.addEventListener('click', toggleMenu);
-            sidebarOverlay.addEventListener('click', toggleMenu);
-            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
 
-            // Exit-Intent Popup Logic
-            const modal = document.getElementById('exitModal');
-            const closeModalBtn = document.getElementById('closeModal');
-            let hasTriggered = localStorage.getItem('exitIntentFotoArt');
-
-            const showModal = () => {
-                if (!hasTriggered) {
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                    localStorage.setItem('exitIntentFotoArt', 'true');
-                    hasTriggered = true;
-                }
-            };
-
-            // Trigger on Desktop (mouse leave top)
-            document.addEventListener('mouseleave', (e) => {
-                if (e.clientY < 0) {
-                    showModal();
-                }
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
             });
+        });
 
-            // Trigger on Mobile (after 30 seconds)
-            setTimeout(() => {
-                if (window.innerWidth < 768) {
-                    showModal();
-                }
-            }, 30000);
+        // Exit Intent Logic
+        const exitModal = document.getElementById('exit-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        let exitIntentTriggered = false;
 
-            // Close modal
-            closeModalBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            });
+        const showExitModal = () => {
+            if (!exitIntentTriggered && !localStorage.getItem('exitIntentShown')) {
+                exitModal.classList.remove('hidden');
+                exitModal.classList.add('flex');
+                exitIntentTriggered = true;
+                localStorage.setItem('exitIntentShown', 'true');
+            }
+        };
 
-            // Close modal on outside click
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }
-            });
+        // Desktop Trigger (Mouse leave top)
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0) {
+                showExitModal();
+            }
+        });
+
+        // Mobile Trigger (Timeout - 30s)
+        setTimeout(() => {
+            if (window.innerWidth < 768) {
+                showExitModal();
+            }
+        }, 30000);
+
+        closeModalBtn.addEventListener('click', () => {
+            exitModal.classList.add('hidden');
+            exitModal.classList.remove('flex');
+        });
+
+        exitModal.addEventListener('click', (e) => {
+            if (e.target === exitModal) {
+                exitModal.classList.add('hidden');
+                exitModal.classList.remove('flex');
+            }
         });
     </script>
 </body>
